@@ -1,0 +1,15 @@
+<article class="detalle">
+  <img src="<%= mascota.imagen %>" alt="Ilustración de <%= mascota.nombre %>">
+  <div>
+    <p class="etiqueta">Detalle de mascota</p>
+    <span class="estado"><%= mascota.estado %></span>
+    <h1><%= mascota.nombre %></h1>
+    <dl class="datos">
+      <div><dt>Especie</dt><dd><%= mascota.especie %></dd></div>
+      <div><dt>Edad</dt><dd><%= mascota.edad %> año(s)</dd></div>
+      <div><dt>Estado</dt><dd><%= mascota.estado %></dd></div>
+      <div><dt>Descripción</dt><dd><%= mascota.descripcion %></dd></div>
+    </dl>
+    <a class="boton" href="/mascotas">Volver al catálogo</a>
+  </div>
+</article>

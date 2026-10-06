@@ -1,0 +1,45 @@
+<section class="formulario-seccion">
+  <p class="etiqueta">Nuevo registro</p>
+  <h1>Agregar una mascota</h1>
+  <p>Completá todos los datos. El registro se conservará en memoria hasta reiniciar el servidor.</p>
+
+  <% if (error) { %>
+    <div class="error" role="alert"><%= error %></div>
+  <% } %>
+
+  <form action="/mascotas" method="post" class="formulario">
+    <div class="campo">
+      <label for="nombre">Nombre</label>
+      <input id="nombre" name="nombre" type="text" value="<%= valores.nombre %>" required>
+    </div>
+
+    <div class="campo">
+      <label for="especie">Especie</label>
+      <input id="especie" name="especie" type="text" value="<%= valores.especie %>" required>
+    </div>
+
+    <div class="campo">
+      <label for="edad">Edad</label>
+      <input id="edad" name="edad" type="number" min="0" step="1" value="<%= valores.edad %>" required>
+    </div>
+
+    <div class="campo">
+      <label for="estado">Estado</label>
+      <select id="estado" name="estado" required>
+        <% ["En adopción", "Reservada", "Adoptada"].forEach((estado) => { %>
+          <option value="<%= estado %>" <%= valores.estado === estado ? "selected" : "" %>><%= estado %></option>
+        <% }); %>
+      </select>
+    </div>
+
+    <div class="campo">
+      <label for="descripcion">Descripción</label>
+      <textarea id="descripcion" name="descripcion" rows="5" required><%= valores.descripcion %></textarea>
+    </div>
+
+    <div class="acciones">
+      <button class="boton principal" type="submit">Guardar mascota</button>
+      <a class="boton" href="/mascotas">Cancelar</a>
+    </div>
+  </form>
+</section>
